@@ -1,0 +1,16 @@
+{
+  "name": "testcafe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test:chrome": "testcafe chrome ./workshop_pom/test/* -r json:./report/report.json",
+    "test:firefox": "testcafe firefox ./workshop_pom/test/* -r json:./report/report.json",
+    "test:multiBrowser": "testcafe chrome,firefox ./workshop_pom/test/* -r json:./report/report.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "testcafe": "^1.14.2"
+  }
+}
