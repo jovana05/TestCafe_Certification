@@ -99,6 +99,7 @@ Example:
 ```
 npm run test:multiBrowser
 ```
+For this project when you run a script, at the end a reporter is created in folder "report".
 
 
 **Tips**
