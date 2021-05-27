@@ -31,7 +31,7 @@ To create a Node project, we need to create a folder where our Framework is goin
  ````
   mkdir <folder_name>
   ````
-3. Move to your new folder by running next command:
+3. Move to your new folder and run next command:
   ````
   cd <folder_name>
   ````
@@ -44,4 +44,65 @@ To create a Node project, we need to create a folder where our Framework is goin
   ````
  8. Now you can see some instructions about project, please skip them.
  9. Is this OK? (yes) is available in command line, enter "y" and package.json is available in project folder
+
+### TestCafe setup
+
+1. In terminal, run next command:
+  ````
+  npm install testcafe
+  ````
+2. To confirm TestCafe is installed, in your terminal enter command:
+  ````
+  testcafe -v
+  ````
+  
+## Run UI Test Cases
+
+Runing test cases is very simple and there are thre ways to make customized runs.
+
+1. In terminal, using **"cd"** command, move to "test" folder.
+
+The next are some of the different running options:
+  
+ ### Run all test cases
+ ```
+testcafe <browser> *
+```
+Example:
+ ```
+testcafe chrome *
+```
+
+## Run a test set**
+```
+testcafe <browser> <testFolderFile>
+```
+Example:
+```
+testcafe safari Login.test.js
+```
+
+## Run a single test case
+```
+testcafe <browser> <testFolderFile> -t "<testCaseName>"
+```
+Example:
+```
+testcafe firefox Login.test.js -t "User can login with valid credentials"
+```
+
+## Run a script
+```
+npm run <scriptName>
+```
+Example:
+```
+npm run test:multiBrowser
+```
+
+
+**Tips**
+>- *The available values for < browser > are the he browsers installed in your computer: ie, chrome, safary, firefox, etc. You can find more information [here](https://testcafe.io/documentation/402828/guides/concepts/browsers).*
+>- *The scripts are located in the "package.json" file in the section "scripts". < scriptName > is the key value of the script defined."*
+>- *There are other options and commands for run testCases, refer to [here](https://devexpress.github.io/testcafe/documentation/using-testcafe/command-line-interface.html) to learn more about it.*
 
