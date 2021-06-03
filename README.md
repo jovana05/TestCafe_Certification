@@ -114,7 +114,7 @@ For this project when you run a script, at the end a reporter is created in fold
 
 ## Description
 
-Hi, my name is Jovana and I created a Postman Collection with different scenarios, I coded with JSON and Javascript. The purpose of this project is to navigate through [Square API] (https://developer.squareup.com/reference/square/payments-api) using automated test cases for positive and negative scenarios.
+Hi, my name is Jovana and I created a Postman Collection with different scenarios, I coded with JSON and Javascript. The purpose of this project is to navigate through [Square API](https://developer.squareup.com/reference/square/payments-api) using automated test cases for positive and negative scenarios.
 
 ## Setup Environment
 
