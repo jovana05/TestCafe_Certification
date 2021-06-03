@@ -6,11 +6,17 @@
   "scripts": {
     "test:chrome": "testcafe chrome ./workshop_pom/test/* -r json:./report/report.json",
     "test:firefox": "testcafe firefox ./workshop_pom/test/* -r json:./report/report.json",
-    "test:multiBrowser": "testcafe chrome,firefox ./workshop_pom/test/* -r json:./report/report.json"
+    "test:multiBrowser": "testcafe chrome,firefox ./workshop_pom/test/* -r json:./report/report.json",
+
+    "api:all": "npx newman run .\\backend_testing\\square_collection.json -e .\\backend_testing\\square_environment.json  -r htmlextra --reporter-htmlextra-export .\\backend_testing\\reports"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "newman-reporter-htmlextra": "^1.21.0",
     "testcafe": "^1.14.2"
+  },
+  "devDependencies": {
+    "newman": "^5.2.3"
   }
 }

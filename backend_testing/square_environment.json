@@ -1,0 +1,44 @@
+{
+	"id": "121df2fb-80dd-413d-be60-2e2d85e90238",
+	"name": "Square API",
+	"values": [
+		{
+			"key": "baseURL",
+			"value": "https://connect.squareupsandbox.com",
+			"enabled": true
+		},
+		{
+			"key": "paymentSubURL",
+			"value": "v2/payments",
+			"enabled": true
+		},
+		{
+			"key": "refundSubURL",
+			"value": "v2/refunds",
+			"enabled": true
+		},
+		{
+			"key": "invalidPaymentSubURL",
+			"value": "v2/payment",
+			"enabled": true
+		},
+		{
+			"key": "invalidRefundSubURL",
+			"value": "v2/refund",
+			"enabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"enabled": true
+		},
+		{
+			"key": "locationID",
+			"value": "",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2021-06-03T00:46:44.871Z",
+	"_postman_exported_using": "Postman/8.5.1"
+}
