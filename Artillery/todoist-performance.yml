@@ -1,0 +1,76 @@
+config:
+  target: "https://api.todoist.com"
+  plugins:
+    expect: {}
+  phases:
+    - duration: 1
+      arrivalRate: 1
+      name: "Warm Up"
+  defaults: 
+    headers:
+      Authorization: Bearer {{ $processEnvironment.TOKEN}}
+      Content-Type: application/json
+  variables:
+    project_name:
+      - "New Performance Project"
+    url_tasks:
+      - "/rest/v1/tasks"
+    task_name:
+      - "task performance"
+    task_name_updated:
+      - "task performance updated"
+scenarios:
+  - flow:
+    - loop: 
+# CREATE MULTIPLE NEW TASKS
+      - post:
+          url: "{{ url_tasks }}"
+          json:
+            content: "{{ task_name }}"
+          capture:
+            json: "$.id"
+            as: "id_task"
+      - log: "Task Id is {{ id_task }}"
+      count: 5 
+# GET ACTIVE TASKS
+    - get:
+        url: "{{ url_tasks }}"
+    - log: "All Active Task Id is {{ id_task }}"
+# GET AN ACTIVE TASK
+    - get:
+        url: "{{ url_tasks }}/{{ id_task }}"
+    - log: "Active Task Id is {{ id_task }}"
+# UPDATE A TASK
+    - post:
+        url: "{{ url_tasks }}/{{ id_task }}"
+        json:
+          content: "{{ task_name_updated }}"
+    - log: "Task Id updated is {{ id_task }}"
+    - think: 2
+# CHANGE STATUS TO 'COMPLETE'
+    # close the task
+    - post:
+        url: "{{ url_tasks }}/{{ id_task }}/close"
+    - think: 2
+    - log: "Task Id closed is {{ id_task }}"
+    # get to check task is not find, because it is 'Complete'
+    - get:
+        url: "{{ url_tasks }}/{{ id_task }}"
+        expect:
+          - statusCode: 404
+    # Reopen the task and see if the id is tha same
+    - post:
+        url: "{{ url_tasks }}/{{ id_task }}/reopen"
+    - log: "Task Id reopened is {{ id_task }}"
+# REOPEN A TASK
+    - post:
+        url: "{{ url_tasks }}/{{ id_task }}/close"
+    - think: 2
+    - post:
+        url: "{{ url_tasks }}/{{ id_task }}/reopen"
+    - log: "Task Id reopened is {{ id_task }}"
+    - think: 2
+# DELETE A TASK
+    - delete:
+        url: "{{ url_tasks }}/{{ id_task }}"
+    - log: "Task Id deleted is {{ id_task }}"

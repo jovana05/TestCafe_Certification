@@ -7,8 +7,8 @@
     "test:chrome": "testcafe chrome ./workshop_pom/test/* -r json:./report/report.json",
     "test:firefox": "testcafe firefox ./workshop_pom/test/* -r json:./report/report.json",
     "test:multiBrowser": "testcafe chrome,firefox ./workshop_pom/test/* -r json:./report/report.json",
-
-    "api:all": "npx newman run .\\backend_testing\\square_collection.json -e .\\backend_testing\\square_environment.json  -r htmlextra --reporter-htmlextra-export .\\backend_testing\\reports"
+    "api:all": "npx newman run .\\backend_testing\\square_collection.json -e .\\backend_testing\\square_environment.json  -r htmlextra --reporter-htmlextra-export .\\backend_testing\\reports",
+    "artillery": "artillery run ./Artillery/todoist-performance.yml"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,8 @@
     "testcafe": "^1.14.2"
   },
   "devDependencies": {
+    "artillery": "^1.7.2",
+    "artillery-plugin-expect": "^1.4.0",
     "newman": "^5.2.3"
   }
 }

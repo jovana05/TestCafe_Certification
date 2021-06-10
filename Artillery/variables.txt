@@ -1,0 +1,12 @@
+1. To declare an environment variable un our .YML file add this information:
+    Authorization: Bearer {{ $processEnvironment.TOKEN}}
+
+2. To create an environmenet variable for Token run next command in terminal:
+
+For MAC:
+    export TOKEN=<Your Token from todoist>
+    echo TOKEN 
+
+For WINDOWS
+    $Env:TOKEN=<Your Token from todoist> 
+     $Env:TOKEN
